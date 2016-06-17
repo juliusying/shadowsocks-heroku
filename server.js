@@ -8,7 +8,7 @@
 
   path = require("path");
 
-  http = require("http");
+  https = require("https");
 
   WebSocket = require('ws');
 
@@ -71,15 +71,21 @@
 
   METHOD = config.method;
 
+  var pfx_path = config.pfx_path;
+  var pfx_pass = config.pfx_pass;
   if ((ref = METHOD.toLowerCase()) === "" || ref === "null" || ref === "table") {
     METHOD = null;
   }
 
-  server = http.createServer(function(req, res) {
+  var httpsopts = {
+	pfx: fs.readFileSync(pfx_path),
+	passphrase: pfx_pass  
+  }
+  server = https.createServer(httpsopts, function(req, res) {
     res.writeHead(200, {
       'Content-Type': 'text/plain'
     });
-    return res.end("asdf.");
+    return res.end("welcome.");
   });
 
   wss = new WebSocketServer({

@@ -1,11 +1,13 @@
 {
   "server": "127.0.0.1",
   "local_address": "127.0.0.1",
-  "scheme": "ws",
+  "scheme": "wss",
   "local_port": 1080,
   "remote_port": 80,
   "password": "`try*(^^$some^$%^complex>:<>?~password/",
   "timeout": 600,
   "method": "AES-256-CFB",
-  "httpproxy": "http://192.168.8.8:8080"  
+  "httpproxy": "http://192.168.8.8:8080",
+  "pfx_path": "your self_sign pfx path",
+  "pfx_pass": "your self_sign pfx pass"  
 }
